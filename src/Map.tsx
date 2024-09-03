@@ -120,6 +120,9 @@ export class Map extends React.Component<
       'className',
     ]);
 
+    if (!parentElementProps.width) parentElementProps.width = 320;
+    if (!parentElementProps.height) parentElementProps.height = 240;
+
     return (
       <ParentContext.Provider value={this.state.instance}>
         <div ref={this._getRef} {...parentElementStyle} {...parentElementProps}>
@@ -221,10 +224,5 @@ const YMapsMap = withErrorBoundary(
     ['Map']
   )
 );
-
-YMapsMap.defaultProps = {
-  width: 320,
-  height: 240,
-};
 
 export default YMapsMap;

@@ -122,6 +122,9 @@ export class Panorama extends React.Component<
   render() {
     const parentElementStyle = getParentElementSize(this.props);
 
+    if (!this.props.width) parentElementProps.width = 320;
+    if (!this.props.height) parentElementProps.height = 240;
+
     return <div ref={this._getRef} {...parentElementStyle} />;
   }
 
@@ -208,10 +211,5 @@ const YMapsPanorama = withErrorBoundary(
     ]
   )
 );
-
-YMapsPanorama.defaultProps = {
-  width: 320,
-  height: 240,
-};
 
 export default YMapsPanorama;
